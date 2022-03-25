@@ -1,13 +1,33 @@
-import { getFeaturedEvents } from '../dummy-data';
-import EventList from '../components/events/EventList';
+import Head from "next/head";
 
-function HomePage() {
-  const featuredEvents = getFeaturedEvents();
+import { getFeaturedEvents } from "../helpers/apiUtils";
+import EventList from "../components/events/EventList";
+import NewsletterRegistration from '../components/input/newsletter-registration';
+function HomePage(props) {
   return (
     <div>
-      <EventList items={featuredEvents} />
+      <Head>
+        <title>NextJs Events</title>
+        <meta name="description" content="Find great events everywhere" />
+      </Head>
+      <NewsletterRegistration />
+      <EventList items={props.featuredEvents} />
     </div>
-  )
+  );
+}
+
+// static server side rendering
+// that means this function will execute when our project is build and the react.js part is transformed into html/css
+// for better seo
+
+export async function getStaticProps() {
+  const featuredEvents = await getFeaturedEvents();
+  return {
+    props: {
+      featuredEvents: featuredEvents,
+    },
+    revalidate: 1800,
+  };
 }
 
 export default HomePage;
