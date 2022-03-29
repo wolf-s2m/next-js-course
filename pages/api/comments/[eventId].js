@@ -20,7 +20,7 @@ function handler(req, res) {
     const dummyList = [
       { id: "c1", name: "max", email: "max@email.com", text: "hurray!" },
     ];
-    res.status(200).json({comments: dummyList});
+    res.status(200).json({ comments: dummyList });
   }
 }
 

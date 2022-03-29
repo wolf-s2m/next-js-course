@@ -1,9 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-import CommentList from "./comment-list";
-import NewComment from "./new-comment";
+import CommentList from "./CommentList";
+import NewComment from "./NewComment";
 import classes from "./comments.module.css";
-import { useEffect } from "react/cjs/react.production.min";
 
 function Comments(props) {
   const { eventId } = props;

@@ -1,12 +1,13 @@
 import { Fragment } from "react";
-import Head from 'next/head';
+import Head from "next/head";
 
 import { getEventById, getFeaturedEvents } from "../../helpers/apiUtils";
 import EventSummary from "../../components/EventDetail/EventSummary";
 import EventLogistics from "../../components/EventDetail/EventLogistics";
 import EventContent from "../../components/EventDetail/EventContent";
 import ErrorAlert from "../../components/Events/ErrorAlert";
-import Comments from '../../components/input/comments';
+import Comments from "../../components/input/Comments";
+
 function EventsDetail(props) {
   const event = props.selectedEvent;
 
@@ -21,7 +22,7 @@ function EventsDetail(props) {
     <Fragment>
       <Head>
         <title>{event.title}</title>
-        <meta name='description' content={event.description}/>
+        <meta name="description" content={event.description} />
       </Head>
       <EventSummary title={event.title} />
       <EventLogistics
@@ -33,7 +34,7 @@ function EventsDetail(props) {
       <EventContent>
         <p>{event.description}</p>
       </EventContent>
-      <Comments eventId={event.id}/>
+      <Comments eventId={event.id} />
     </Fragment>
   );
 }
@@ -60,7 +61,7 @@ export async function getStaticPaths() {
 
   return {
     paths: paths,
-    fallback: 'blocking',
+    fallback: "blocking",
   };
 }
 export default EventsDetail;

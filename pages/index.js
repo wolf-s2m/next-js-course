@@ -1,8 +1,8 @@
 import Head from "next/head";
 
 import { getFeaturedEvents } from "../helpers/apiUtils";
-import EventList from "../components/events/EventList";
-import NewsletterRegistration from '../components/input/newsletter-registration';
+import EventList from "../components/Events/EventList";
+import NewsletterRegistration from "../components/input/NewsletterRegistration";
 function HomePage(props) {
   return (
     <div>
